@@ -1,22 +1,32 @@
-const stockSymbolInput = document.getElementById('stockSymbol');
-const submitButton = document.getElementById('submitButton');
-const priceDisplay = document.getElementById('priceDisplay');
+const priceDisplay = document.getElementById("priceDisplay");
 
-let currentSymbol = 'NVDA';
+let currentSymbol = "NVDA";
 
 document.title = currentSymbol;
 
 const updatePrice = () => {
-  fetch('/price')
-    .then(response => response.text())
-    .then(data => {
+  fetch("/price")
+    .then((response) => response.text())
+    .then((data) => {
       priceDisplay.textContent = `$${data}`;
+      document.title = `$${data}`;
     })
-    .catch(error => {
-      console.error('Error fetching price:', error);
+    .catch((error) => {
+      console.error("Error fetching price:", error);
     });
 };
 
 updatePrice();
 
 setInterval(updatePrice, 10000);
+
+function disableTextSelection() {
+    document.body.setAttribute('unselectable', 'on');
+    document.body.style.userSelect = 'none';
+    document.body.style.MozUserSelect = 'none';
+    document.body.style.webkitUserSelect = 'none';
+    document.body.style.msUserSelect = 'none';
+}
+
+disableTextSelection();
+

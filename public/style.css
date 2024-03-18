@@ -1,11 +1,15 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-}
-
-#priceDisplay {
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    color: #fff;
+    font-family: 'REM', Arial, sans-serif;
+    font-size: 5em;
+    overflow: hidden;
+    user-select: none;
+    touch-action: none;
 }
